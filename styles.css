@@ -623,3 +623,5 @@ p.grading {
   .strata-flow { animation: none; opacity: 0; }
   *, *::before, *::after { transition: none !important; }
 }
+
+.site-footer .footer-fine a { color: var(--stone-400); text-decoration: underline; text-underline-offset: 3px; }
