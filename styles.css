@@ -670,3 +670,31 @@ p.grading {
   .systems-grid.three { grid-template-columns: 1fr; }
   .map-list { grid-column: auto; }
 }
+
+/* ==========================================================
+   COPY REWRITE (2026-11-22): pain list on paper + hero note
+   spacing after the ICP line was removed.
+   ========================================================== */
+.hero .hero-note { margin-top: 28px; }
+
+.pain-list {
+  list-style: none;
+  max-width: 44rem;
+  margin: 8px 0 0;
+  padding: 0;
+}
+.pain-list li {
+  position: relative;
+  padding: 13px 0 13px 26px;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--ink);
+  border-bottom: 1px solid var(--hair-ink);
+}
+.pain-list li:last-child { border-bottom: 0; }
+.pain-list li::before {
+  content: "";
+  position: absolute; left: 0; top: 26px;
+  width: 12px; height: 2px;
+  background: var(--spring-deep);
+}

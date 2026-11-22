@@ -1,41 +1,39 @@
 # Karst Agency
 
-> Karst Agency is an AI consultancy based in London, Kentucky. We work with owner-led B2B firms to find where AI saves time and wins work inside the business, prove it on one number agreed up front, then build it.
+> Karst Agency helps shops and service companies hand the typing, chasing, and slow follow-up to AI, so their people spend the day on the work they're good at. Based in London, Kentucky.
 
 ## What we do
 
-- AI consulting for owner-led B2B firms: diagnosis first, builds second.
-- Every engagement starts by naming one number to move, in one of three places: more customers, each customer worth more, or lower costs.
-- We map how work actually flows, identify where time and leads leak, and recommend the first build that would move the number.
-- Builds are scoped and priced in writing before they start, and measured against the baseline recorded at the start.
+- We fix the everyday leaks: enquiries answered too late, quotes that take days, follow-up that only happens when somebody remembers, and busywork that eats the team's week.
+- Answer every enquiry fast, even after hours, with nothing left unworked in an inbox.
+- Get quotes out while they're still warm, with the information pulled together and the quote drafted.
+- Hand the typing, copying, chasing, and scheduling over to systems instead of people.
 
 ## Who it is for
 
-- Owner-led B2B firms of roughly 5 to 50 people.
-- Especially industrial and manufacturing suppliers, and business and facility services firms selling recurring contracts.
-- Owners who run good businesses and want AI applied to real work, not sold as software.
-- Not for: brand-new businesses with no customers yet, anyone shopping for a specific tool before knowing which problem it solves, or anyone who needs results this week.
+- Shops and service companies that run lean: industrial and manufacturing suppliers, and facility services companies.
+- Owners who run good businesses and are not technical, and don't want to be.
+- Not for: businesses with no customers yet, anyone who already knows which tool they want to buy, or anyone who needs it fixed this week.
 
-## How the work goes
+## How it starts
 
-- It starts with a short discovery call: the business, how work comes in, where it gets stuck. No pitch.
-- Then a paid working session inside the business. The client leaves with a one-page map: the problem in their words, the one number to move, today's baseline, a 60-day target, and the first build we recommend. The map is theirs to keep whether or not we work together.
-- If the map shows a number worth moving, the next step is one focused project that moves it.
-- Firms that want to keep going continue as an ongoing partnership: we keep the number moving and take on the next build each cycle.
+- A 15-minute discovery call about the business and where the time goes. No pitch. If we can't help, we say so on the call.
+- Then a paid working session inside the business. The owner leaves with one page, in plain words: where the time is going, what we'd fix first, and what it would take. The page is theirs to keep whether or not we work together.
+- Then we build it, only if it's worth doing. The price is in writing before anything starts and doesn't change. No hourly billing.
 - Pricing is quoted in conversation and in writing before any step starts. It is not published on this site.
 
-## Proof standard
+## Straight with you
 
-- Every engagement names one number before work starts, with today's baseline written down.
-- Results are reported against that baseline. As engagements complete, results are published on the website with the client's permission.
+- We're a new firm. Before any work starts, we agree in plain writing what it's supposed to change. When it's done, we show whether it did.
 
 ## Contact
 
 - Email: hello@karstagency.com
+- Booking: https://calendly.com/karstagency/discovery-call
 - Website: https://karstagency.com/
 - Location: London, Kentucky, United States. Client work is done nationally, on calls and on site.
 
 ## Pages
 
-- [Home](https://karstagency.com/): what we do, the working session, how we work, and straight answers to common questions.
+- [Home](https://karstagency.com/): the leaks we fix, how it starts, and straight answers to common questions.
 - [Privacy](https://karstagency.com/privacy.html): what this site collects and how email is handled.
