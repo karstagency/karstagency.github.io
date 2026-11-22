@@ -1,6 +1,7 @@
 /* ==========================================================
-   KARST: base tokens
-   Existing variables unchanged; new ones marked NEW.
+   KARST — design system v3 (2026-11-22)
+   Limestone & spring water. Fraunces display, Inter text,
+   mono for labels and numerals.
    ========================================================== */
 :root {
   --stone-950: #171614;
@@ -15,24 +16,25 @@
   --ink-soft: #55504a;
   --spring: #3d8ab5;
   --spring-deep: #2c6a8f;
+  --spring-ink: #22587a;        /* button hover: white text >= 7:1 */
+  --spring-pale: #a7cde2;       /* spring light on dark */
   --line: #d9d2c4;
   --line-dark: #36322d;
-
-  /* NEW */
-  --spring-ink: #22587a;        /* button hover: keeps white text >= 7:1 */
-  --spring-pale: #a7cde2;       /* spring light on dark (h1 turn) */
   --ledger: #fbf9f4;            /* record panel on paper */
   --hair-light: rgba(236, 230, 218, 0.12);
   --hair-ink: rgba(35, 32, 28, 0.14);
 
-  --fs-h1: clamp(2.4rem, 1.35rem + 4.2vw, 4.25rem);
-  --fs-h2: clamp(1.8rem, 1.25rem + 2.1vw, 2.75rem);
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --fs-h1: clamp(2.6rem, 1.4rem + 4.6vw, 4.9rem);
+  --fs-h2: clamp(1.9rem, 1.3rem + 2.2vw, 2.85rem);
   --fs-h3: 1.22rem;
   --fs-lead: clamp(1.08rem, 1rem + 0.35vw, 1.25rem);
   --fs-callout: clamp(1.14rem, 1rem + 0.5vw, 1.36rem);
 
-  --space-section: clamp(72px, 9vw, 120px);
+  --space-section: clamp(76px, 9vw, 124px);
   --radius: 2px;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
 
   /* Limestone grain: inline SVG noise, no external asset */
   --grain-paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .14 0 0 0 0 .12 0 0 0 0 .1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
@@ -40,7 +42,7 @@
 }
 
 /* ==========================================================
-   Base / typography   [rank 2]
+   Base / typography
    ========================================================== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -61,7 +63,7 @@ body {
   overflow-x: hidden;
 }
 
-::selection { background: rgba(61, 138, 181, 0.28); }
+::selection { background: rgba(61, 138, 181, 0.32); }
 
 :focus-visible {
   outline: 2px solid var(--spring);
@@ -69,7 +71,7 @@ body {
   border-radius: var(--radius);
 }
 
-.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 .wrap.narrow { max-width: 760px; }
 .center { text-align: center; }
 
@@ -90,12 +92,13 @@ p:last-child { margin-bottom: 0; }
 
 .eyebrow {
   display: flex; align-items: center; gap: 12px;
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--spring-deep);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 .eyebrow::before {
   content: "";
@@ -105,6 +108,14 @@ p:last-child { margin-bottom: 0; }
   opacity: 0.7;
 }
 
+/* Scroll reveal (JS adds .in; no-JS and reduced-motion show all) */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease-out);
+}
+html.js [data-reveal].in { opacity: 1; transform: none; }
+
 /* ==========================================================
    Header
    ========================================================== */
@@ -112,6 +123,7 @@ p:last-child { margin-bottom: 0; }
   position: sticky; top: 0; z-index: 20;
   background: rgba(23, 22, 20, 0.97);
   border-bottom: 1px solid rgba(236, 230, 218, 0.08);
+  transition: box-shadow 0.3s ease;
 }
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
   .site-header {
@@ -120,6 +132,7 @@ p:last-child { margin-bottom: 0; }
     backdrop-filter: saturate(140%) blur(12px);
   }
 }
+.site-header.scrolled { box-shadow: 0 14px 34px -18px rgba(0, 0, 0, 0.6); }
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   gap: 16px;
@@ -132,8 +145,8 @@ p:last-child { margin-bottom: 0; }
   white-space: nowrap;
 }
 .wordmark-sub {
-  font-family: "Inter", sans-serif;
-  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.3em;
+  font-family: var(--mono);
+  font-size: 0.6rem; font-weight: 500; letter-spacing: 0.3em;
   color: var(--spring); margin-left: 10px; vertical-align: 3px;
 }
 .wordmark.small { font-size: 1.05rem; }
@@ -158,60 +171,71 @@ p:last-child { margin-bottom: 0; }
 .site-header nav a.nav-cta:hover { background: var(--spring-deep); border-color: var(--spring-deep); }
 
 /* ==========================================================
-   Hero   [rank 1]
+   Hero
    ========================================================== */
 .hero {
   position: relative;
   overflow: hidden;
   color: var(--limestone);
-  padding: clamp(72px, 11vw, 140px) 0 0;
+  padding: clamp(76px, 11vw, 148px) 0 0;
   background:
     radial-gradient(70rem 26rem at 88% 100%, rgba(61, 138, 181, 0.16), transparent 62%),
     radial-gradient(48rem 30rem at 0% 0%, rgba(236, 230, 218, 0.045), transparent 60%),
     var(--grain-stone),
     var(--stone-950);
 }
-.hero .eyebrow { color: var(--spring); }
+.hero .eyebrow { color: var(--spring-pale); }
 
 .hero h1 {
   font-size: var(--fs-h1);
-  font-weight: 400;                   /* display cut: already loaded, no new font weight */
-  line-height: 1.04;
+  font-weight: 400;
+  line-height: 1.03;
   letter-spacing: -0.022em;
   color: var(--limestone);
-  max-width: 17ch;
-  margin-bottom: 28px;
-}
-.h1-turn {                            /* optional hook A */
-  display: block;
-  color: var(--spring-pale);
+  max-width: 15.5ch;
+  margin-bottom: 30px;
 }
 
 .hero-sub {
   font-size: var(--fs-lead);
-  line-height: 1.6;
+  line-height: 1.62;
   color: var(--limestone-dim);
   max-width: 38rem;
-  margin-bottom: 36px;
+  margin-bottom: 38px;
 }
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 0; }
+.hero-note { font-size: 0.9rem; color: var(--stone-400); margin-top: 26px; max-width: 40rem; }
 
-.hero-icp {
-  max-width: 40rem;
-  margin-top: 48px;
-  padding-top: 24px;
+/* Trust strip: three plain promises under the hero */
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 40px;
+  margin-top: 56px;
+  padding-top: 30px;
   border-top: 1px solid var(--hair-light);
-  font-size: 0.98rem;
-  color: var(--limestone);
-  margin-bottom: 8px;
 }
-.hero-note { font-size: 0.88rem; color: var(--stone-400); }
-.hero .hero-note { max-width: 40rem; }
+.trust-item .trust-k {
+  display: block;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.32rem;
+  line-height: 1.2;
+  color: var(--limestone);
+  margin-bottom: 6px;
+}
+.trust-item .trust-v {
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--stone-400);
+  max-width: 17rem;
+}
 
-/* Strata cross-section (SVG, see HTML swap) */
+/* Strata cross-section (SVG in the HTML) */
 .strata {
   position: relative;
-  margin-top: clamp(48px, 7vw, 88px);
+  margin-top: clamp(52px, 7vw, 92px);
   line-height: 0;
 }
 .strata svg {
@@ -221,7 +245,7 @@ p:last-child { margin-bottom: 0; }
 }
 .strata-flow {
   stroke-dasharray: 7 93;
-  animation: strata-flow 11s linear infinite;   /* the page's one motion */
+  animation: strata-flow 11s linear infinite;   /* the page's one ambient motion */
 }
 @keyframes strata-flow {
   from { stroke-dashoffset: 100; }
@@ -229,7 +253,7 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ==========================================================
-   Buttons   [rank 5]
+   Buttons
    ========================================================== */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -241,8 +265,9 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: 0.005em;
   text-align: center;
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
+.btn:active { transform: translateY(1px); }
 .btn-primary {
   background: var(--spring-deep);
   color: #fff;
@@ -251,6 +276,12 @@ p:last-child { margin-bottom: 0; }
     0 1px 2px rgba(0, 0, 0, 0.25),
     0 10px 28px -14px rgba(61, 138, 181, 0.7);
 }
+.btn-primary::after {
+  content: "\2192";
+  margin-left: 10px;
+  font-weight: 500;
+  transition: transform 0.25s var(--ease-out);
+}
 .btn-primary:hover {
   background: var(--spring-ink);
   box-shadow:
@@ -258,6 +289,7 @@ p:last-child { margin-bottom: 0; }
     0 1px 2px rgba(0, 0, 0, 0.3),
     0 14px 32px -14px rgba(61, 138, 181, 0.8);
 }
+.btn-primary:hover::after { transform: translateX(3px); }
 .btn-ghost {
   border-color: rgba(236, 230, 218, 0.24);
   color: var(--limestone);
@@ -266,13 +298,12 @@ p:last-child { margin-bottom: 0; }
 .btn-ghost:hover { border-color: var(--spring); background: rgba(61, 138, 181, 0.08); }
 
 /* ==========================================================
-   Sections: rhythm + bedding-plane edges   [rank 3]
+   Sections: rhythm + bedding-plane edges
    ========================================================== */
 .section { position: relative; padding: var(--space-section) 0; }
 .section-lede { font-size: var(--fs-lead); color: var(--ink-soft); max-width: 42rem; }
 
-/* Bedding plane, dark side (paper → underground): staggered hairlines,
-   water shows on the deepest one. Used on .audit and .story. */
+/* Bedding plane, dark side (paper → underground) */
 .audit::before,
 .story::before,
 .site-footer::before {
@@ -314,17 +345,9 @@ p:last-child { margin-bottom: 0; }
 .two-col h2 { margin-bottom: 0; }
 .two-col p { color: var(--ink-soft); max-width: 36em; }
 
-/* Problem */
-.problem { border-bottom: 0; }
-.problem .two-col > div:last-child > p:first-child {
-  font-size: var(--fs-lead);
-  line-height: 1.6;
-  color: var(--ink);
-}
-
-/* Callout: the page's key sentences (problem + offer) */
+/* Callout: the page's key sentences */
 p.grading {
-  margin-top: 40px;
+  margin-top: 34px;
   padding: 4px 0 4px 22px;
   border-left: 2px solid var(--spring-deep);
   font-family: "Fraunces", Georgia, serif;
@@ -336,19 +359,37 @@ p.grading {
 .grading strong { font-weight: 560; color: var(--spring-deep); }
 
 /* ==========================================================
-   Offer (.audit) + cards   [rank 4]
+   Pain list: numbered, editorial
    ========================================================== */
-.audit {
-  color: var(--limestone);
-  background:
-    radial-gradient(60rem 30rem at 100% 0%, rgba(61, 138, 181, 0.08), transparent 60%),
-    var(--grain-stone),
-    var(--stone-900);
+.pain-list {
+  list-style: none;
+  counter-reset: pain;
+  margin: 0;
+  padding: 0;
 }
-.audit .eyebrow { color: var(--spring); }
-.audit h2 { color: var(--limestone); max-width: 24ch; }
-.audit .section-lede { color: var(--limestone-dim); }
+.pain-list li {
+  counter-increment: pain;
+  position: relative;
+  padding: 20px 0 20px 58px;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--ink);
+  border-bottom: 1px solid var(--hair-ink);
+}
+.pain-list li:first-child { padding-top: 4px; }
+.pain-list li:last-child { border-bottom: 0; }
+.pain-list li::before {
+  content: counter(pain, decimal-leading-zero);
+  position: absolute; left: 0; top: 24px;
+  font-family: var(--mono);
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+  color: var(--spring-deep);
+}
+.pain-list li:first-child::before { top: 8px; }
 
+/* ==========================================================
+   Cards (light on paper, dark underground)
+   ========================================================== */
 .systems-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -356,25 +397,27 @@ p.grading {
   margin-top: 52px;
   counter-reset: card;
 }
+.systems-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
 .system-card {
   position: relative;
   counter-increment: card;
-  padding: 28px 28px 30px;
+  padding: 30px 28px 32px;
   border: 1px solid var(--line-dark);
   border-radius: var(--radius);
   background:
     linear-gradient(180deg, rgba(236, 230, 218, 0.035), rgba(236, 230, 218, 0) 55%),
     var(--stone-950);
   box-shadow: inset 0 1px 0 rgba(236, 230, 218, 0.05);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s ease;
 }
-.system-card::before {                 /* 01–04: decorative numerals */
+.system-card::before {                 /* 01–03 numerals */
   content: counter(card, decimal-leading-zero);
   display: block;
   margin-bottom: 18px;
-  font-family: "Inter", sans-serif;
-  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.18em;
+  font-family: var(--mono);
+  font-size: 0.74rem; font-weight: 500; letter-spacing: 0.14em;
   line-height: 1;
-  font-variant-numeric: tabular-nums;
   color: var(--spring);
 }
 .system-card::after {                  /* water-mark on the top edge */
@@ -383,53 +426,49 @@ p.grading {
   width: 40px; height: 2px;
   background: var(--spring);
 }
-.system-card h3 { color: var(--limestone); font-size: 1.2rem; margin-bottom: 10px; }
-.system-card p { font-size: 0.96rem; line-height: 1.65; color: var(--limestone-dim); margin: 0; }
+.system-card h3 { color: var(--limestone); font-size: 1.22rem; margin-bottom: 10px; }
+.system-card p { font-size: 0.97rem; line-height: 1.65; color: var(--limestone-dim); margin: 0; }
+.system-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(61, 138, 181, 0.55);
+  box-shadow: inset 0 1px 0 rgba(236, 230, 218, 0.05), 0 24px 44px -30px rgba(0, 0, 0, 0.8);
+}
+
+.system-card.light {
+  border-color: var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 55%),
+    var(--ledger);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 20px 40px -34px rgba(35, 32, 28, 0.35);
+}
+.system-card.light::before { display: none; }   /* icons carry these, not numbers */
+.system-card.light::after { background: var(--spring-deep); }
+.system-card.light h3 { color: var(--ink); }
+.system-card.light p { color: var(--ink-soft); }
+.system-card.light:hover {
+  border-color: rgba(44, 106, 143, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 28px 48px -30px rgba(35, 32, 28, 0.45);
+}
+.card-icon {
+  width: 27px; height: 27px;
+  color: var(--spring-deep);
+  margin-bottom: 18px;
+}
+.card-icon svg { display: block; width: 100%; height: 100%; }
 
 /* ==========================================================
-   Pilot block (.sample): the spring-lit panel   [rank 4]
+   Steps (.audit): the dark section
    ========================================================== */
-.sample {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
-  column-gap: clamp(28px, 4vw, 56px);
-  margin-top: 16px;
-  padding: clamp(28px, 4vw, 48px);
-  border: 1px solid rgba(61, 138, 181, 0.38);
-  border-radius: var(--radius);
+.audit {
+  color: var(--limestone);
   background:
-    radial-gradient(40rem 20rem at 0% 0%, rgba(61, 138, 181, 0.22), transparent 70%),
-    linear-gradient(180deg, #1a1f23, #151718);
-  box-shadow: 0 30px 60px -40px rgba(0, 0, 0, 0.75);
+    radial-gradient(60rem 30rem at 100% 0%, rgba(61, 138, 181, 0.08), transparent 60%),
+    var(--grain-stone),
+    var(--stone-900);
 }
-.sample::before {                      /* spring edge */
-  content: "";
-  position: absolute; left: -1px; top: -1px; bottom: -1px;
-  width: 3px;
-  background: linear-gradient(180deg, var(--spring), var(--spring-deep));
-  border-radius: var(--radius) 0 0 var(--radius);
-}
-.sample h3 {
-  grid-column: 1; grid-row: 1 / span 2;
-  font-size: clamp(1.45rem, 1.1rem + 1.2vw, 2rem);
-  font-weight: 400;
-  line-height: 1.15;
-  color: var(--limestone);
-  margin: 0;
-}
-.sample p { grid-column: 2; font-size: 1rem; color: var(--limestone-dim); }
-.sample h3 + p { color: var(--limestone); }
-.sample p:last-child { margin-bottom: 0; }
-.sample strong { color: var(--limestone); }
-
-.audit p.grading {
-  max-width: 44rem;
-  margin-top: 56px;
-  border-left-color: var(--spring);
-  color: var(--limestone);
-}
-.audit .grading strong { color: var(--spring); }
+.audit .eyebrow { color: var(--spring-pale); }
+.audit h2 { color: var(--limestone); max-width: 24ch; }
+.audit .section-lede { color: var(--limestone-dim); }
 
 .audit-cta {
   display: flex; flex-wrap: wrap; align-items: center;
@@ -457,35 +496,71 @@ p.grading {
 }
 
 /* ==========================================================
-   FAQ: editorial two-column list
+   FAQ: accordion
    ========================================================== */
 .faq {
   border-bottom: 0;
   border-top: 1px solid var(--line);
   background: var(--grain-paper), var(--limestone);
 }
-.faq .wrap.narrow { max-width: 1080px; }
-.faq h2 { margin-bottom: 44px; }
-.faq-item {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: 10px 48px;
-  margin: 0;
-  padding: 28px 0;
-  border-top: 1px solid var(--hair-ink);
+.faq h2 { margin-bottom: 40px; }
+.faq-item { border-top: 1px solid var(--hair-ink); }
+.faq-item:last-child { border-bottom: 1px solid var(--hair-ink); }
+.faq-q {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+  padding: 25px 6px 25px 0;
+  background: none; border: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 560;
+  font-size: 1.26rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
-.faq-item:last-child { margin-bottom: 0; border-bottom: 1px solid var(--hair-ink); }
-.faq-item h3 { margin: 0; font-size: 1.2rem; }
-.faq-item p { margin: 0; color: var(--ink-soft); }
+.faq-q:hover { color: var(--spring-ink); }
+.faq-icon {
+  position: relative;
+  flex: none;
+  width: 15px; height: 15px;
+  transition: transform 0.35s var(--ease-out);
+}
+.faq-icon::before,
+.faq-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--spring-deep);
+  left: 50%; top: 50%;
+}
+.faq-icon::before { width: 15px; height: 2px; transform: translate(-50%, -50%); }
+.faq-icon::after { width: 2px; height: 15px; transform: translate(-50%, -50%); }
+.faq-q[aria-expanded="true"] .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-out);
+}
+.faq-a.open { grid-template-rows: 1fr; }
+.faq-a-inner { overflow: hidden; min-height: 0; }
+.faq-a p {
+  color: var(--ink-soft);
+  max-width: 42rem;
+  padding: 0 44px 28px 0;
+  margin: 0;
+}
 
 /* ==========================================================
-   Story: underground, with the water line   [rank 5]
+   Story: underground, with the water line
    ========================================================== */
 .story {
   color: var(--limestone);
   background: var(--grain-stone), var(--stone-900);
 }
-.story .eyebrow { color: var(--spring); }
+.story .eyebrow { color: var(--spring-pale); }
 .story h2 { color: var(--limestone); }
 .story .wrap { position: relative; padding-left: 64px; }
 .story .wrap::before {
@@ -503,7 +578,7 @@ p.grading {
   line-height: 1.75;
   color: var(--limestone-dim);
 }
-.story-tagline {                       /* optional hook B */
+.story-tagline {
   display: block;
   margin-top: 22px;
   font-family: "Fraunces", Georgia, serif;
@@ -515,7 +590,7 @@ p.grading {
 }
 
 /* ==========================================================
-   Contact: where the spring surfaces   [rank 5]
+   Contact: where the spring surfaces
    ========================================================== */
 .contact {
   overflow: hidden;
@@ -537,7 +612,7 @@ p.grading {
 }
 .contact .wrap { position: relative; z-index: 1; }
 .contact h2 {
-  font-size: clamp(2rem, 1.3rem + 2.6vw, 3rem);
+  font-size: clamp(2.1rem, 1.3rem + 2.8vw, 3.2rem);
   font-weight: 400;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -553,7 +628,15 @@ p.grading {
   font-size: 1.05rem;
   overflow-wrap: anywhere;
 }
-.contact .hero-note { padding-bottom: 0; font-size: 0.9rem; color: var(--stone-400); }
+.contact .hero-note { padding-bottom: 0; font-size: 0.9rem; color: var(--stone-400); margin-top: 0; }
+.contact a:not(.btn) {
+  color: var(--spring-pale);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(167, 205, 226, 0.45);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+.contact a:not(.btn):hover { color: var(--limestone); text-decoration-color: var(--limestone); }
 
 /* ==========================================================
    Footer
@@ -561,9 +644,20 @@ p.grading {
 .site-footer {
   position: relative;
   background: var(--stone-950);
-  padding: 52px 0 56px;
+  padding: 56px 0 60px;
 }
 .footer-inner { text-align: center; }
+.footer-nav {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 8px 30px;
+  margin-top: 26px;
+}
+.footer-nav a {
+  color: var(--limestone-dim); text-decoration: none;
+  font-size: 0.9rem; font-weight: 500;
+  transition: color 0.2s ease;
+}
+.footer-nav a:hover { color: var(--limestone); }
 .site-footer p { color: var(--stone-400); font-size: 0.92rem; margin-top: 10px; }
 .site-footer p:not(.footer-fine) {
   font-family: "Fraunces", Georgia, serif;
@@ -571,20 +665,17 @@ p.grading {
   color: var(--limestone-dim);
   margin-top: 14px;
 }
-.site-footer .footer-fine { font-size: 0.8rem; margin-top: 8px; }
+.site-footer .footer-fine { font-size: 0.8rem; margin-top: 22px; }
+.site-footer .footer-fine a { color: var(--stone-400); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ==========================================================
    Responsive
    ========================================================== */
 @media (max-width: 860px) {
-  .two-col { grid-template-columns: 1fr; gap: 20px; }
+  .two-col { grid-template-columns: 1fr; gap: 28px; }
   .two-col > div:first-child { position: static; }
-
-  .sample { grid-template-columns: 1fr; }
-  .sample h3 { grid-column: auto; grid-row: auto; margin-bottom: 16px; }
-  .sample p { grid-column: auto; }
-
-  .faq-item { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .systems-grid.three { grid-template-columns: 1fr; }
+  .trust-strip { grid-template-columns: 1fr; gap: 22px; }
 }
 
 @media (max-width: 560px) {
@@ -596,9 +687,8 @@ p.grading {
 
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; }
-  .hero-icp { margin-top: 40px; }
 
-  .systems-grid { grid-template-columns: 1fr; }
+  .systems-grid { grid-template-columns: 1fr; margin-top: 40px; }
   .system-card { padding: 24px 22px 26px; }
   .system-card::after { left: 22px; }
 
@@ -606,6 +696,10 @@ p.grading {
   .audit-cta .btn { width: 100%; }
 
   p.grading { padding-left: 18px; }
+  .pain-list li { padding-left: 44px; }
+
+  .faq-q { font-size: 1.15rem; padding: 21px 2px 21px 0; }
+  .faq-a p { padding-right: 8px; }
 
   .story .wrap { padding-left: 48px; }
   .story .wrap::before { left: 20px; }
@@ -619,82 +713,7 @@ p.grading {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .strata-flow { animation: none; opacity: 0; }
+  html.js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .faq-a { transition: none; }
   *, *::before, *::after { transition: none !important; }
-}
-
-.site-footer .footer-fine a { color: var(--stone-400); text-decoration: underline; text-underline-offset: 3px; }
-
-/* ==========================================================
-   CONSULTANCY REDESIGN DRAFT (2026-11-22): additions only.
-   Light cards for use on paper sections, a 3-up grid, and
-   the one-page map list inside the session panel.
-   ========================================================== */
-.systems-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-.system-card.light {
-  border-color: var(--line);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 55%),
-    var(--ledger);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 20px 40px -34px rgba(35, 32, 28, 0.35);
-}
-.system-card.light::before { color: var(--spring-deep); }
-.system-card.light::after { background: var(--spring-deep); }
-.system-card.light h3 { color: var(--ink); }
-.system-card.light p { color: var(--ink-soft); }
-
-.map-list {
-  grid-column: 2;
-  list-style: none;
-  margin: 0 0 16px;
-  padding: 0;
-}
-.map-list li {
-  position: relative;
-  padding: 7px 0 7px 22px;
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--limestone-dim);
-  border-bottom: 1px solid var(--hair-light);
-}
-.map-list li:last-child { border-bottom: 0; }
-.map-list li::before {
-  content: "";
-  position: absolute; left: 0; top: 16px;
-  width: 10px; height: 2px;
-  background: var(--spring);
-}
-.map-list strong { color: var(--limestone); font-weight: 600; }
-
-@media (max-width: 860px) {
-  .systems-grid.three { grid-template-columns: 1fr; }
-  .map-list { grid-column: auto; }
-}
-
-/* ==========================================================
-   COPY REWRITE (2026-11-22): pain list on paper + hero note
-   spacing after the ICP line was removed.
-   ========================================================== */
-.hero .hero-note { margin-top: 28px; }
-
-.pain-list {
-  list-style: none;
-  max-width: 44rem;
-  margin: 8px 0 0;
-  padding: 0;
-}
-.pain-list li {
-  position: relative;
-  padding: 13px 0 13px 26px;
-  font-size: var(--fs-lead);
-  line-height: 1.55;
-  color: var(--ink);
-  border-bottom: 1px solid var(--hair-ink);
-}
-.pain-list li:last-child { border-bottom: 0; }
-.pain-list li::before {
-  content: "";
-  position: absolute; left: 0; top: 26px;
-  width: 12px; height: 2px;
-  background: var(--spring-deep);
 }
