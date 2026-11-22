@@ -625,3 +625,50 @@ p.grading {
 }
 
 .site-footer .footer-fine a { color: var(--stone-400); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ==========================================================
+   CONSULTANCY REDESIGN DRAFT (2026-11-22): additions only.
+   Light cards for use on paper sections, a 3-up grid, and
+   the one-page map list inside the session panel.
+   ========================================================== */
+.systems-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.system-card.light {
+  border-color: var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 55%),
+    var(--ledger);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 20px 40px -34px rgba(35, 32, 28, 0.35);
+}
+.system-card.light::before { color: var(--spring-deep); }
+.system-card.light::after { background: var(--spring-deep); }
+.system-card.light h3 { color: var(--ink); }
+.system-card.light p { color: var(--ink-soft); }
+
+.map-list {
+  grid-column: 2;
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+.map-list li {
+  position: relative;
+  padding: 7px 0 7px 22px;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--limestone-dim);
+  border-bottom: 1px solid var(--hair-light);
+}
+.map-list li:last-child { border-bottom: 0; }
+.map-list li::before {
+  content: "";
+  position: absolute; left: 0; top: 16px;
+  width: 10px; height: 2px;
+  background: var(--spring);
+}
+.map-list strong { color: var(--limestone); font-weight: 600; }
+
+@media (max-width: 860px) {
+  .systems-grid.three { grid-template-columns: 1fr; }
+  .map-list { grid-column: auto; }
+}

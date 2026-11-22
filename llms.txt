@@ -1,35 +1,41 @@
 # Karst Agency
 
-> Karst Agency is a B2B lead generation firm based in London, Kentucky. We find the buyers a client would pick themselves, reach out in the client's name, and put qualified meetings on the client's calendar. Clients pay nothing until meetings are landing.
+> Karst Agency is an AI consultancy based in London, Kentucky. We work with owner-led B2B firms to find where AI saves time and wins work inside the business, prove it on one number agreed up front, then build it.
 
 ## What we do
 
-- Outbound prospecting and outreach for owner-led B2B firms, done in the client's name.
-- We research and build the prospect list, write and send the outreach, handle replies, and book meetings directly onto the client's calendar.
-- Every meeting is previewed with the client before it happens. The client can turn down a bad fit, and a turned-down meeting never counts.
-- Meetings come with records: who was contacted, what was sent, and what happened. The client keeps all records and contacts.
+- AI consulting for owner-led B2B firms: diagnosis first, builds second.
+- Every engagement starts by naming one number to move, in one of three places: more customers, each customer worth more, or lower costs.
+- We map how work actually flows, identify where time and leads leak, and recommend the first build that would move the number.
+- Builds are scoped and priced in writing before they start, and measured against the baseline recorded at the start.
 
 ## Who it is for
 
-- Owner-led B2B firms of roughly 5 to 50 people where the owner is still the sales team.
-- Firms whose best customers came by referral and who want that on a schedule instead of by luck.
+- Owner-led B2B firms of roughly 5 to 50 people.
 - Especially industrial and manufacturing suppliers, and business and facility services firms selling recurring contracts.
-- Not for: brand-new offers with no customers yet, firms where a new customer is not worth enough for the math to work, or anyone who needs customers this month.
+- Owners who run good businesses and want AI applied to real work, not sold as software.
+- Not for: brand-new businesses with no customers yet, anyone shopping for a specific tool before knowing which problem it solves, or anyone who needs results this week.
 
-## How the offer works
+## How the work goes
 
-- It starts with a free Market Count: tell us the customer you would most like more of, and we reply with how many matching buyers we can reach, with real examples.
-- Then a 60-day pilot, free start to finish: if we do not put three meetings on the calendar in 60 days, the client pays nothing.
-- After the pilot, one flat monthly amount, set in writing before starting. Any month that falls short of three meetings is free. No per-meeting charges, no long-term contract, stop any time.
-- If a prospect no-shows, the meeting does not count. If the client's side misses a meeting it booked, that one counts.
+- It starts with a short discovery call: the business, how work comes in, where it gets stuck. No pitch.
+- Then a paid working session inside the business. The client leaves with a one-page map: the problem in their words, the one number to move, today's baseline, a 60-day target, and the first build we recommend. The map is theirs to keep whether or not we work together.
+- If the map shows a number worth moving, the next step is one focused project that moves it.
+- Firms that want to keep going continue as an ongoing partnership: we keep the number moving and take on the next build each cycle.
+- Pricing is quoted in conversation and in writing before any step starts. It is not published on this site.
+
+## Proof standard
+
+- Every engagement names one number before work starts, with today's baseline written down.
+- Results are reported against that baseline. As engagements complete, results are published on the website with the client's permission.
 
 ## Contact
 
 - Email: hello@karstagency.com
 - Website: https://karstagency.com/
-- Location: London, Kentucky, United States. Client campaigns run nationally.
+- Location: London, Kentucky, United States. Client work is done nationally, on calls and on site.
 
 ## Pages
 
-- [Home](https://karstagency.com/): what we do, the offer, and straight answers to common questions.
-- [Privacy](https://karstagency.com/privacy.html): what this site collects, how email is handled, and how to opt out of outreach.
+- [Home](https://karstagency.com/): what we do, the working session, how we work, and straight answers to common questions.
+- [Privacy](https://karstagency.com/privacy.html): what this site collects and how email is handled.
