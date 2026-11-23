@@ -205,6 +205,9 @@ html.js [data-reveal].in { opacity: 1; transform: none; }
 }
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 0; }
 .hero-note { font-size: 0.9rem; color: var(--stone-400); margin-top: 26px; max-width: 40rem; }
+.cta-micro { font-size: 0.85rem; color: var(--stone-400); margin-top: 10px; max-width: 40rem; }
+.example-note { margin-top: 44px; max-width: 46rem; padding: 4px 0 4px 22px; border-left: 2px solid var(--spring-deep); font-size: var(--fs-lead); color: var(--ink-soft); }
+.example-note strong { color: var(--spring-deep); }
 
 /* Trust strip: three plain promises under the hero */
 .trust-strip {
