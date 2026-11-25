@@ -11,7 +11,7 @@
 
 ## Who it is for
 
-- Shops and service companies that run lean: industrial and manufacturing suppliers, and facility services companies.
+- Shops and service companies that run lean.
 - Owners who run good businesses and are not technical, and don't want to be.
 - Not for: businesses with no customers yet, anyone who already knows which tool they want to buy, or anyone who needs it fixed this week.
 
