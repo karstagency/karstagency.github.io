@@ -18,7 +18,8 @@
 ## How it starts
 
 - A 15-minute discovery call about the business and where the time goes. No pitch. If we can't help, we say so on the call.
-- Then a paid working session inside the business. The owner leaves with one page, in plain words: where the time is going, what we'd fix first, and what it would take. The page is theirs to keep whether or not we work together.
+- Then a paid working session inside the business. The owner leaves with a one-page workflow map, in plain words: the bottleneck, the hours per week it's costing, and the first fix with a fixed price. The map is theirs to keep whether or not we work together.
+- We build around the tools the business already uses (email, spreadsheets, accounting, estimating, or dispatch software), with no rip-and-replace.
 - Then we build it, only if it's worth doing. The price is in writing before anything starts and doesn't change. No hourly billing.
 - Pricing is quoted in conversation and in writing before any step starts. It is not published on this site.
 
